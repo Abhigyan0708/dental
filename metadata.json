@@ -1,0 +1,6 @@
+{
+  "name": "Bright Smile Dental",
+  "description": "A dental clinic website featuring provider profiles and an appointment scheduler.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
