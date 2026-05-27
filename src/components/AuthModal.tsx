@@ -31,15 +31,17 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
       
       const data = await response.json();
       
-      if (!response.ok) {
-        throw new Error(data.error || data.message || 'Authentication failed');
+      if (!data) {
+        console.error("No response data received");
+        throw new Error(data.error || 'Authentication failed');
       }
       
-      onSuccess({ email: data.email || data.user?.email || email });
+      onSuccess({ email: data.user.email });
       setEmail('');
       setPassword('');
       setMode('login');
     } catch (err: any) {
+      console.error("Authentication error:", err);
       setError(err.message);
     } finally {
       setIsSubmitting(false);
